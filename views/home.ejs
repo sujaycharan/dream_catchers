@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO website</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Dream Catchers Foundation</h1>
+            <nav>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/course">Courses</a></li>
+                    <li><a href="/admission">Admissions</a></li>
+                    <li><a href="/support">Support</a></li>
+                    <% if (session.user) { %> 
+                        <!-- Show user icon and logout if the user is logged in -->
+                        <li>
+                            <img src="/images/user-icon.png" alt="User Icon" class="user-icon" />
+                            <form action="/logout" method="post" style="display:inline;">
+                                <button type="submit" class="logout-button">Logout</button>
+                            </form>
+                        </li>
+                    <% } else { %> 
+                        <!-- Show login button if the user is not logged in -->
+                        <li><a href="/login" class="button">Login</a></li>
+                    <% } %>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!--image sliding-->
+    <div class="slider">
+        <div class="slides">
+            <!-- Add images -->
+            <img src="/images/image1.jpg" alt="Image 1" class="slide">
+            <img src="/images/image2.jpg" alt="Image 2" class="slide">
+            <img src="/images/image3.jpg" alt="Image 3" class="slide">
+            <img src="/images/image5.jpg" alt="Image 3" class="slide">
+            <img src="/images/image6.jpg" alt="Image 3" class="slide">
+            <img src="/images/image7.jpg" alt="Image 3" class="slide">
+            <img src="/images/image8.jpg" alt="Image 3" class="slide">
+        </div>
+
+        <!-- Navigation buttons -->
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>
